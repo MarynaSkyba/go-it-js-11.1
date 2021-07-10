@@ -36,11 +36,6 @@
 
 
 
- 
-  
-  
-
-  
 
 
 
@@ -70,16 +65,13 @@
       sans-serif;
   }
   
-  .field {
-    color: #333;
-    margin: 0 auto;
-    text-align: center;
-  }
+
   
-  .field {
+.field {
       padding: 50px;
       display: inline-block;
       align-items: center; 
+      text-align: center;
   }
   
 .label {
@@ -92,5 +84,5 @@
   
   .value{
     display: block;
-    font-size: 4.5rem;
+    font-size: 3.5rem;
   }
