@@ -13,4 +13,4 @@ const t=(t,n)=>Math.floor(Math.random()*(n-t+1)+t),n=n=>new Promise((a,o)=>{cons
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./scss/main.css"),require("./task1"),require("./task2"),require("./task3.1"),require("./task3.2"),require("./task3.3");
 },{"./scss/main.css":"YZer","./task1":"dAXG","./task2":"F3LX","./task3.1":"WOFb","./task3.2":"aTW7","./task3.3":"VIZ7"}]},{},["Focm"], null)
-//# sourceMappingURL=/go-it-js-11.1/src.c72c9be9.js.map
+//# sourceMappingURL=/go-it-js-11.1/src.c5a0093e.js.map
