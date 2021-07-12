@@ -4,5 +4,6 @@ import './task2';
 import './task3.1';
 import './task3.2';
 import './task3.3';
+import Swal from 'sweetalert2';
 
 

@@ -12,7 +12,7 @@ const timer = {
             return;
         }
         this.isActive  = true;
-        startBtn.style.disaplay = 'block';
+        startBtn.disabled= true;
         this.intervalId = setInterval(changeBodyBgcolor,1000,1000);
     },
     
@@ -20,7 +20,7 @@ const timer = {
     clickOnStop () {
         clearInterval(this.intervalId);
         this.isActive = false;
-        startBtn.style.disabled = false;
+        startBtn.disabled = false;
     },
     };
 
