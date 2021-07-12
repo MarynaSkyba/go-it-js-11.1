@@ -1,16 +1,7 @@
-// const refs = {
-//     startBtn: document.querySelector('[data-start]'),
-//     stopBtn: document.querySelector('[data-stop]'),
-// };
 
 const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
 
-
-// startBtn.addEventListener('click', clickOnStart);
-// stopBtn.addEventListener('click', clickOnStop);
-
-// refs.startBtn.disabled = true;
 
 const timer = {
     intervalId: null,
