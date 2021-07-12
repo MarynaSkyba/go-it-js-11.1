@@ -31,40 +31,45 @@ class CountdownTimer {
 
 
 chooseDate () {
-    const input = refs.inputDate.value; 
-        const startTime = new Date(input);
+        const input = refs.inputDate.value; 
+        const inputDate = new Date(input);
         const currentDate = Date.now()
-        const countTime = startTime - currentDate;
-        const timeCount= this.convertMs(countTime);
-        this.updateClockface(timeCount);
+        const countTime = inputDate - currentDate;
+        // const timeCount= this.convertMs(countTime);
+        // this.updateClockface(timeCount);
         if (countTime < 0) {
+            refs.btnCount.disabled = true;
             Swal.fire ({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Please choose a date in the future',
+                text: 'Please choose a date in the future',       
             })
             return;
+        }
+        if (countTime > 0){
+          refs.btnCount.disabled = false;  
         }
 }
 
 
 start(){
-        if (this.isActive) {
+        if (this.isActive) {   
             return;
         }
    
     this.isActive = true;    
-        setInterval(() => { 
+       this.intervalId = setInterval(() => { 
         
         const input = refs.inputDate.value; 
-        const startTime = new Date(input);
-        console.log(startTime)
+        const inputDate = new Date(input);
         const currentDate = Date.now()
-        console.log(currentDate)
-        const countTime = startTime - currentDate;
+       
+        const countTime = inputDate - currentDate;
         const timeCount= this.convertMs(countTime);
         this.updateClockface(timeCount);
-    
+        if (countTime < 1000) {
+            clearInterval(this.intervalId);
+        }
         }
     , 1000);
     }
