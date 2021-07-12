@@ -1,30 +1,43 @@
+// const refs = {
+//     startBtn: document.querySelector('[data-start]'),
+//     stopBtn: document.querySelector('[data-stop]'),
+// };
+
 const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
 
 
-startBtn.addEventListener('click', clickOnStart);
-stopBtn.addEventListener('click', clickOnStop);
+// startBtn.addEventListener('click', clickOnStart);
+// stopBtn.addEventListener('click', clickOnStop);
+
+// refs.startBtn.disabled = true;
+
+const timer = {
+    intervalId: null,
+    isActive: false,
+
+    clickOnStart () {
+        if(this.isActive){
+            return;
+        }
+        this.isActive  = true;
+        startBtn.disabled = true;
+        this.intervalId = setInterval(changeBodyBgcolor,1000,1000);
+    },
+    
+
+    clickOnStop () {
+        clearInterval(this.intervalId);
+        this.isActive = false;
+        startBtn.disabled = false;
+    },
+    };
 
 
-let isActive = false;
-function clickOnStart(){
-    if(isActive){
-        return;
-    }
-    isActive = true;
-    intervalId = setInterval(changeBodyBgcolor,1000,1000);
-};
+startBtn.addEventListener('click', () => {timer.clickOnStart()});
+stopBtn.addEventListener('click', () => {timer.clickOnStop()});
+
 
 function changeBodyBgcolor () {
    console.log(document.body.style.background = `#${Math.floor(Math.random() * 16777215).toString(16)}`);
 }
-
-function clickOnStop () {
-    clearInterval(intervalId);
-    isActive = false;
-}
-
-function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  }
-//   console.log(getRandomHexColor)
