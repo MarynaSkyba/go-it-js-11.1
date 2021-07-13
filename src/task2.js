@@ -1,22 +1,10 @@
-
-
-
-const refs = {
-btnCount: document.querySelector('[data-startcount]'),
-clock: document.querySelector('.js-clockface'),
-inputDate: document.querySelector('#date-selector'),
-days: document.querySelector('[data-days]'),
-hours: document.querySelector('[data-hours]'),
-minutes: document.querySelector('[data-minutes]'),
-hours: document.querySelector('[data-seconds]'),
-};
-
 import Swal from "sweetalert2";
 
 class CountdownTimer {
     constructor() {
         this.intervalId = null;
         this.isActive = false;
+        // this.refs.btnCount.disabled = false; 
         this.refs = {
             btnCount: document.querySelector('[data-startcount]'),
             clock: document.querySelector('.js-clockface'),
@@ -31,24 +19,25 @@ class CountdownTimer {
 
 
 chooseDate () {
-        const input = refs.inputDate.value; 
-        const inputDate = new Date(input);
-        const currentDate = Date.now()
-        const countTime = inputDate - currentDate;
+        // const input = refs.inputDate.value; 
+        // const inputDate = new Date(input);
+        // const currentDate = Date.now()
+        // const countTime = inputDate - currentDate;
         // const timeCount= this.convertMs(countTime);
         // this.updateClockface(timeCount);
         if (countTime < 0) {
-            refs.btnCount.disabled = true;
+            // refs.btnCount.disabled = true;
+            
             Swal.fire ({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Please choose a date in the future',       
             })
-            return;
+            // return;
         }
-        if (countTime > 0){
-          refs.btnCount.disabled = false;  
-        }
+        // if (countTime > 0){
+        //   refs.btnCount.disabled = false;  
+        // }
 }
 
 
@@ -56,7 +45,6 @@ start(){
         if (this.isActive) {   
             return;
         }
-   
     this.isActive = true;    
        this.intervalId = setInterval(() => { 
         
